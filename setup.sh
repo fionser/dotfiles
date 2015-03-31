@@ -7,9 +7,9 @@ set -e
 if [ -z $1 ]; then
 
     # The following path detection code is copied from StackOverflow [1]. It is
-    # licensed under GPL 2.0. 
+    # licensed under GPL 2.0.
     #
-    # <http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in/179231#179231>. 
+    # <http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in/179231#179231>.
 
     # test if ths script is from a file or a pipe
     if [ -z ${BASH_SOURCE[0]} ]; then
@@ -19,7 +19,7 @@ if [ -z $1 ]; then
         # from a file
         SCRIPT_PATH="${BASH_SOURCE[0]}"
         if ([ -h "${SCRIPT_PATH}" ]) then
-        while ([ -h "${SCRIPT_PATH}" ]) do 
+        while ([ -h "${SCRIPT_PATH}" ]) do
             SCRIPT_PATH=`readlink "${SCRIPT_PATH}"`
         done
         fi
@@ -50,7 +50,7 @@ link() {
         mv ~/.$1 ~/.$1.old
     fi
 
-    ln -s $DOTFILES/files/$1  ~/.$1 
+    ln -s $DOTFILES/files/$1  ~/.$1
     echo ~/.$1 linked
     return 0
 }
@@ -59,7 +59,7 @@ link() {
 linkall() {
     for each in $DOTFILES/files/*; do
         if [ -e $each ]; then
-            link `basename $each` 
+            link `basename $each`
         fi
     done
     echo Dotfiles linked
@@ -80,6 +80,7 @@ vim_vundle() {
     if ! [[ -d ~/.vim/bundle/neobundle.vim ]]; then
 	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
     fi
+    vim +NeoBundleInstall +qall
 }
 
 clone
