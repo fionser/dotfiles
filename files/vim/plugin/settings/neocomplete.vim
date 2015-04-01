@@ -9,4 +9,5 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 let g:neocomplete#lock_buffer_name_pattern='\*ku\*'
+let g:neocomplete#sources#omni#functions={'go' : 'go#complete#Complete'}
 
