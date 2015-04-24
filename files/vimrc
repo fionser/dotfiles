@@ -47,6 +47,7 @@ NeoBundleLazy 'rip-rip/clang_complete', {
 NeoBundle 'Shougo/neocomplcache-clang_complete'
 endif
 
+NeoBundle 'vim-scripts/google.vim'
 NeoBundleLazy 'Shougo/neocomplete', {
             \ 'autoload' : {
             \ 'insert' : 1,},}
@@ -132,14 +133,13 @@ endfunction
 
 set sw=4  ""auto indent for 4
 set ts=4  ""tab width for 4
-set et    ""replace tab by space
 set smarttab  ""can delete four space at once.
 set sm  ""parentless match
-set cin ""C Indent
+"set cin ""C Indent
 autocmd BufWritePre * :%s/\s\+$//e "auto strip trailling whitespace
 set selection=inclusive
 
-set background=dark
+set background=light
 " set tw=78 fo+=Mm
 " set cc=80
 colorscheme solarized
