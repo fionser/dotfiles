@@ -27,11 +27,11 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'bling/vim-airline'
 
 NeoBundleLazy 'scrooloose/nerdtree', {
-            \ 'autoload' : {'commands' : 'NERDTree'}
+            \ 'autoload' : {'commands' : ['NERDTree']}
             \}
 
 NeoBundleLazy 'davidhalter/jedi-vim', {
-            \'autoload' : {'filetypes' : ["python"]}
+            \ 'autoload' : {'filetypes' : ["python"]}
             \}
 
 NeoBundle 'majutsushi/tagbar'
@@ -44,14 +44,16 @@ if has("mac")
 NeoBundleLazy 'rip-rip/clang_complete', {
             \ 'autoload': {'filetypes': ["cpp", "c"]}
             \ }
-NeoBundle 'Shougo/neocomplcache-clang_complete'
+NeoBundleLazy 'Shougo/neocomplcache-clang_complete', {
+			\ 'autoload': {'filetypes': ["cpp", "c"]}
+			\}
 endif
 
 NeoBundle 'vim-scripts/google.vim'
-NeoBundleLazy 'Shougo/neocomplete', {
-            \ 'autoload' : {
-            \ 'insert' : 1,},}
 
+NeoBundleLazy 'Shougo/neocomplete', {
+            \ 'autoload' : { 'insert' : '1'}
+			\ }
 NeoBundle 'tpope/vim-surround'
 
 NeoBundle 'tpope/vim-fugitive'
@@ -89,7 +91,7 @@ NeoBundleLazy 'dgryski/vim-godef', {
             \}
 
 NeoBundleLazy 'peterhoeg/vim-qml', {
-            \ 'autoload' : {'filetype' : ['qml']}
+            \ 'autoload' : {'filetypes' : ['qml']}
             \}
 
 NeoBundle 'Shougo/vimproc.vim', {
