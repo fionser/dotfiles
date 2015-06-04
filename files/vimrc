@@ -18,7 +18,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#begin('~/.vim/bundle/')
 
 NeoBundle 'Shougo/neobundle.vim'
 
@@ -49,7 +48,7 @@ NeoBundleLazy 'Shougo/neocomplcache-clang_complete', {
 			\}
 endif
 
-NeoBundle 'vim-scripts/google.vim'
+"NeoBundle 'vim-scripts/google.vim'
 
 NeoBundleLazy 'Shougo/neocomplete', {
             \ 'autoload' : { 'insert' : '1'}
@@ -137,11 +136,15 @@ set sw=4  ""auto indent for 4
 set ts=4  ""tab width for 4
 set smarttab  ""can delete four space at once.
 set sm  ""parentless match
-"set cin ""C Indent
+set cindent ""C Indent
+set cino=N-s
+set cino+=g0
+set cino+=:0
+set cino+=(0
 autocmd BufWritePre * :%s/\s\+$//e "auto strip trailling whitespace
 set selection=inclusive
-
-set background=light
+:map <bs> bdw
+set background=dark
 " set tw=78 fo+=Mm
 " set cc=80
-colorscheme solarized
+colorscheme dracula
