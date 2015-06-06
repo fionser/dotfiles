@@ -48,8 +48,6 @@ NeoBundleLazy 'Shougo/neocomplcache-clang_complete', {
 			\}
 endif
 
-"NeoBundle 'vim-scripts/google.vim'
-
 NeoBundleLazy 'Shougo/neocomplete', {
             \ 'autoload' : { 'insert' : '1'}
 			\ }
