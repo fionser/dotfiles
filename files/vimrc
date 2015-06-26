@@ -1,7 +1,7 @@
 if $SHELL =~ 'fish'
     set shell=/bin/bash
 endif
-let mapleader = ","
+let mapleader = "\<Space>"
 set nocompatible
 filetype off
 " Note: Skip initialization for vim-tiny or vim-small.
@@ -91,12 +91,25 @@ NeoBundleLazy 'peterhoeg/vim-qml', {
             \ 'autoload' : {'filetypes' : ['qml']}
             \}
 
+NeoBundleLazy 'kchmck/vim-coffee-script', {
+			\ 'autoload' : {'filetypes' : ['coffee']}}
+
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
             \ 'mac' : 'make -f make_mac.mak'}}
 
+NeoBundle 'mattn/emmet-vim', {
+			\ 'autoload' : {'filetypes' : ['js', 'html']}}
+
 NeoBundle 'Shougo/vimshell'
 
+NeoBundle 'chase/vim-ansible-yaml', {
+			\ 'autoload' : {'filetypes' : ['yml']}
+			\}
+
+NeoBundle 'christoomey/vim-tmux-navigator'
+
+let g:instant_markdown_slow = 0
 call neobundle#end()
 NeoBundleCheck
 
@@ -116,7 +129,13 @@ set smartcase
 set matchtime=1 "100MS
 set showtabline=1
 set incsearch
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+"nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
 syntax on
 filetype indent on
 inoremap <C-e> <C-o>$
@@ -135,14 +154,10 @@ set ts=4  ""tab width for 4
 set smarttab  ""can delete four space at once.
 set sm  ""parentless match
 set cindent ""C Indent
-set cino=N-s
-set cino+=g0
-set cino+=:0
-set cino+=(0
+set cino+=N-s,g0,:0,(0
+set iskeyword-=_
 autocmd BufWritePre * :%s/\s\+$//e "auto strip trailling whitespace
 set selection=inclusive
 :map <bs> bdw
 set background=dark
-" set tw=78 fo+=Mm
-" set cc=80
-colorscheme dracula
+colorscheme solarized
