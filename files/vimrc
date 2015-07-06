@@ -129,6 +129,9 @@ set fileencodings=ucs-bom,utf-8,cp936
 set number
 set showcmd
 set t_Co=256
+set nocursorcolumn
+set nocursorline
+set norelativenumber
 set foldmethod=indent
 set nofoldenable
 set smartcase
@@ -143,6 +146,10 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 syntax on
+syntax sync minlines=80 maxlines=300
+set synmaxcol=128
+set regexpengine=1
+set lazyredraw
 filetype indent on
 inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>0
