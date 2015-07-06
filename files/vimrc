@@ -142,7 +142,6 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-:map dw diw
 syntax on
 filetype indent on
 inoremap <C-e> <C-o>$
