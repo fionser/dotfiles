@@ -35,6 +35,10 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
             \ 'autoload' : {'filetypes' : ["python"]}
             \}
 
+NeoBundleLazy 'LaTex-Box-Team/LaTex-Box', {
+            \ 'autoload' : {'filetypes' : ['tex']}
+            \}
+
 NeoBundle 'majutsushi/tagbar'
 
 NeoBundle "kien/rainbow_parentheses.vim"
@@ -93,10 +97,6 @@ NeoBundleLazy 'dgryski/vim-godef', {
             \ 'autoload' : {'filetypes' : ['go']}
             \}
 
-NeoBundleLazy 'peterhoeg/vim-qml', {
-            \ 'autoload' : {'filetypes' : ['qml']}
-            \}
-
 NeoBundleLazy 'kchmck/vim-coffee-script', {
 			\ 'autoload' : {'filetypes' : ['coffee']}}
 
@@ -107,7 +107,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'mattn/emmet-vim', {
 			\ 'autoload' : {'filetypes' : ['js', 'html']}}
 
-" NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimshell'
 
 NeoBundle 'chase/vim-ansible-yaml', {
 			\ 'autoload' : {'filetypes' : ['yml']}
