@@ -1,0 +1,36 @@
+"*":
+  "exception-reporting":
+    userId: "e528a9c2-3c67-4cf6-6652-786848d6f114"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "atom-dark-ui"
+      "one-dark-syntax"
+    ]
+    disabledPackages: [
+      "atom-ctags"
+      "autocomplete-clang"
+      "clang-format"
+    ]
+  editor:
+    invisibles: {}
+    tabLength: 4
+    scrollPastEnd: true
+    fontFamily: "PragmataPro for Powerline"
+    fontSize: 16
+  "vim-mode":
+    useSmartcaseForSearch: true
+  "atom-terminal-panel": {}
+  "autocomplete-plus": {}
+  "atom-ctags": {}
+  autosave:
+    enabled: true
+  "autocomplete-clang": {}
+  "atom-beautify":
+    analytics: false
+    cpp_configPath: "/Users/riku/.uncrustify.cfg"
+    language_cpp_beautify_on_save: true
+  "clang-format":
+    formatJavascriptOnSave: false
+    formatObjectiveCOnSave: false
