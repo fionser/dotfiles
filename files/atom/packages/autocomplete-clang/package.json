@@ -1,7 +1,7 @@
 {
   "name": "autocomplete-clang",
   "main": "./lib/autocomplete-clang",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "description": "autocomplete for C/C++/ObjC using clang",
   "activationCommands": [],
   "repository": {
@@ -28,10 +28,10 @@
     "url": "https://github.com/yasuyuky/autocomplete-clang/issues"
   },
   "homepage": "https://github.com/yasuyuky/autocomplete-clang",
-  "_id": "autocomplete-clang@0.8.6",
-  "_shasum": "8974a1a4f151b021bb083b1eef9c9546b3d9ac10",
-  "_resolved": "file:../d-11569-2987-10ra1q6/package.tgz",
-  "_from": "../d-11569-2987-10ra1q6/package.tgz",
+  "_id": "autocomplete-clang@0.8.7",
+  "_shasum": "34798e44d7203e30dadc6f9ce7054fe09b89295f",
+  "_resolved": "file:../d-115610-40128-u48jpd/package.tgz",
+  "_from": "../d-115610-40128-u48jpd/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

@@ -54,13 +54,15 @@ class ClangProvider
         res.push(suggestion)
     res
 
-  lineRe: /COMPLETION: (.+) : (.+)$/
+  lineRe: /COMPLETION: ([^:]+)(?: : (.+))?$/
   returnTypeRe: /\[#([^#]+)#\]/ig
   argumentRe: /\<#([^#]+)#\>/ig
   convertCompletionLine: (s) ->
     match = s.match(@lineRe)
     if match?
       [line, completion, pattern] = match
+      unless pattern?
+        return {snippet:completion,text:completion}
       returnType = null
       patternNoType = pattern.replace @returnTypeRe, (match, type) ->
         returnType = type
@@ -70,7 +72,8 @@ class ClangProvider
         index++
         "${#{index}:#{arg}}"
 
-      suggestion = {rightLabel: "returns #{returnType}"}
+      suggestion = {}
+      suggestion.rightLabel = returnType if returnType?
       if index > 0
         suggestion.snippet = replacement
       else
