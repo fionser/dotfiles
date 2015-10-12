@@ -1,5 +1,6 @@
 let s:bundle = neobundle#get('clang_complete')
-function! s:bundle.hooks.on_source(bundle)
+if s:bundle != {}
+function! bundle.hooks.on_source(bundle)
 
 let g:clang_auto_select=1
 let g:clang_complete_auto=1
@@ -13,3 +14,4 @@ let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/
 
 endfunction
 unlet s:bundle
+endif
