@@ -1,6 +1,6 @@
 let s:bundle = neobundle#get('clang_complete')
 if s:bundle != {}
-function! bundle.hooks.on_source(bundle)
+function! s:bundle.hooks.on_source(bundle)
 
 let g:clang_auto_select=1
 let g:clang_complete_auto=1

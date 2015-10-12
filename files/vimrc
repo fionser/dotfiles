@@ -38,6 +38,7 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 NeoBundleLazy 'LaTex-Box-Team/LaTex-Box', {
             \ 'autoload' : {'filetypes' : ['tex']}
             \}
+let g:tex_conceal=""
 
 NeoBundle 'majutsushi/tagbar'
 
@@ -62,8 +63,8 @@ NeoBundle 'tpope/vim-surround'
 
 NeoBundle 'tpope/vim-fugitive'
 
-"" NeoBundleLazy 'scrooloose/syntastic',
-            " \ 'autoload' : {'filetypes' : ['cpp', 'c', 'java', 'py']}}
+NeoBundleLazy 'scrooloose/syntastic', {
+            \ 'autoload' : {'filetypes' : ['cpp', 'c', 'java', 'py']}}
 
 NeoBundleLazy 'rking/ag.vim', {
             \'autoload' : { 'commands' : ["Ag"] }
@@ -72,10 +73,10 @@ NeoBundleLazy 'rking/ag.vim', {
 NeoBundle 'vim-scripts/tComment'
 
 NeoBundleLazy 'Shougo/neosnippet', {
-            \ 'autoload' : {'filetypes' : ['cpp', 'c', 'java', 'py']}}
+            \ 'autoload' : {'filetypes' : ['cpp', 'c', 'java', 'py', 'tex']}}
 
 NeoBundleLazy 'Shougo/neosnippet-snippets', {
-            \ 'autoload' : {'filetypes' : ['cpp', 'c', 'java', 'py']}}
+            \ 'autoload' : {'filetypes' : ['cpp', 'c', 'java', 'py', 'tex']}}
 
 NeoBundle 'Raimondi/delimitMate'
 
@@ -115,9 +116,8 @@ NeoBundle 'chase/vim-ansible-yaml', {
 
 NeoBundle 'christoomey/vim-tmux-navigator'
 
-NeoBundleLazy 'Julialang/julia-vim', {
-                \ 'autoload' : {'filetypes' : ['julia']}
-                \}
+NeoBundle 'vim-scripts/LargeFile'
+
 call neobundle#end()
 NeoBundleCheck
 
