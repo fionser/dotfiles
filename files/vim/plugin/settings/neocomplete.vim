@@ -10,4 +10,10 @@ endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 let g:neocomplete#lock_buffer_name_pattern='\*ku\*'
 let g:neocomplete#sources#omni#functions={'go' : 'go#complete#Complete'}
+let g:neocomplete#enable_auto_close_preview=0
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
 
