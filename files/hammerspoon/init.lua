@@ -2,27 +2,44 @@
 local hyper      = {'cmd', 'shift'}
 --
 -- -- Move Mouse to center of next Monitor
-hs.hotkey.bind(hyper, '`', function()
+function moveMouse(screen)
+    if not screen then
+        hs.alter("no screen")
+        return
+    end
+    local rect = screen:fullFrame()
+    local center = hs.geometry.rectMidPoint(rect)
+    hs.mouse.setAbsolutePosition(center)
+end
+
+hs.hotkey.bind(hyper, 'm', function()
     local screen = hs.mouse.getCurrentScreen()
     local nextScreen = screen:next()
-    local rect = nextScreen:fullFrame()
-    local center = hs.geometry.rectMidPoint(rect)
-
-    hs.mouse.setAbsolutePosition(center)
+    moveMouse(nextScreen)
 end)
 
 hs.hotkey.bind(hyper, 'L', function()
     local win = hs.window.focusedWindow()
-    local f = win:frame()
-    f. x = f.x + 10
-    win:setFrame(f)
+    if not win then
+        return
+    end
+    local s = win:screen():toEast()
+    if s then
+        win:moveToScreen(s)
+        moveMouse(s)
+    end
 end)
 
 hs.hotkey.bind(hyper, 'H', function()
     local win = hs.window.focusedWindow()
-    local f = win:frame()
-    f. x = f.x - 10
-    win:setFrame(f)
+    if not win then
+        return
+    end
+    local s = win:screen():toWest()
+    if s then
+        win:moveToScreen(s)
+        moveMouse(s)
+    end
 end)
 
 hs.hotkey.bind(hyper, 'K', function()

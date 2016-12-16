@@ -7,124 +7,38 @@ filetype off
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
-if has('vim_starting')
-    set nocompatible               " Be iMproved
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+    set nocompatible
 endif
+
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if &runtimepath !~# '/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
+    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
+    let g:rc_dir = expand('~/.vim/rc')
+    let s:toml = g:rc_dir . '/dein.toml'
+    let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-NeoBundle 'Shougo/neobundle.vim'
+    call dein#load_toml(s:toml, {'lazy' : 0})
+    call dein#load_toml(s:lazy_toml, {'lazy' : 1})
+    call dein#end()
+    call dein#save_state()
+endif
 
-NeoBundle 'Shougo/unite.vim'
-
-NeoBundle 'Shougo/neomru.vim'
-
-NeoBundle 'bling/vim-airline'
-
-NeoBundleLazy 'scrooloose/nerdtree', {
-            \ 'autoload' : {'commands' : ['NERDTree']}
-            \}
-
-NeoBundleLazy 'davidhalter/jedi-vim', {
-            \ 'autoload' : {'filetypes' : ["python"]}
-            \}
-
-NeoBundleLazy 'LaTex-Box-Team/LaTex-Box', {
-            \ 'autoload' : {'filetypes' : ['tex']}
-            \}
-
-map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline
-                \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
-                \ "%:p" <CR>
-
-let g:tex_conceal=""
-
-NeoBundle 'majutsushi/tagbar'
-
-NeoBundle "kien/rainbow_parentheses.vim"
-
-autocmd BufRead *.sage set filetype=python
-
-" if has("mac")
-" NeoBundleLazy 'rip-rip/clang_complete', {
-"             \ 'autoload': {'filetypes': ["cpp", "c"]}
-"             \ }
-" NeoBundleLazy 'Shougo/neocomplcache-clang_complete', {
-" 			\ 'autoload': {'filetypes': ["cpp", "c"]}
-" 			\}
-" endif
-
-NeoBundleLazy 'Shougo/neocomplete', {
-            \ 'autoload' : { 'insert' : '1'}
-			\ }
-
-NeoBundle 'tpope/vim-surround'
-
-NeoBundle 'tpope/vim-fugitive'
-
-NeoBundleLazy 'scrooloose/syntastic', {
-            \ 'autoload' : {'filetypes' : ['cpp', 'c', 'java', 'py']}}
-
-NeoBundleLazy 'rking/ag.vim', {
-            \'autoload' : { 'commands' : ["Ag"] }
-            \}
-
-NeoBundle 'vim-scripts/tComment'
-
-NeoBundleLazy 'Shougo/neosnippet', {
-            \ 'autoload' : {'filetypes' : ['cpp', 'c', 'java', 'py', 'tex']}}
-
-NeoBundleLazy 'Shougo/neosnippet-snippets', {
-            \ 'autoload' : {'filetypes' : ['cpp', 'c', 'java', 'py', 'tex']}}
-
-NeoBundle 'Raimondi/delimitMate'
-
-NeoBundle "myusuf3/numbers.vim"
-
-" NeoBundle 'terryma/vim-multiple-cursors'
-
-NeoBundleLazy 'fatih/vim-go', {
-            \ 'autoload' : {'filetypes' : ['go']}
-            \ }
-
-let g:go_fmt_command = 'goimports'
-
-NeoBundleLazy 'Blackrush/vim-gocode', {
-            \ 'autoload' : {'filetypes' : ['go']}
-            \}
-
-NeoBundleLazy 'dgryski/vim-godef', {
-            \ 'autoload' : {'filetypes' : ['go']}
-            \}
-
-NeoBundleLazy 'kchmck/vim-coffee-script', {
-			\ 'autoload' : {'filetypes' : ['coffee']}}
-
-NeoBundle 'Shougo/vimproc.vim', {
-            \ 'build' : {
-            \ 'mac' : 'make -f make_mac.mak'}}
-
-NeoBundle 'mattn/emmet-vim', {
-			\ 'autoload' : {'filetypes' : ['js', 'html']}}
-
-NeoBundle 'Shougo/vimshell'
-
-NeoBundle 'chase/vim-ansible-yaml', {
-			\ 'autoload' : {'filetypes' : ['yml']}
-			\}
-
-NeoBundle 'christoomey/vim-tmux-navigator'
-
-NeoBundle 'vim-scripts/LargeFile'
-
-call neobundle#end()
-NeoBundleCheck
+filetype plugin indent on
+syntax enable
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+    call dein#install()
+endif
 
 " Basic Settings
 set nocp ""set no compatiable
@@ -146,19 +60,16 @@ set smartcase
 set matchtime=1 "100MS
 set showtabline=1
 set incsearch
-"nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-syntax on
 syntax sync minlines=80 maxlines=300
 set synmaxcol=128
 set regexpengine=1
 set lazyredraw
-filetype indent plugin on
 inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>0
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
@@ -177,8 +88,6 @@ set smarttab  ""can delete four space at once.
 set sm  ""parentless match
 set cindent ""C Indent
 set cino+=N-s,g0,:0,(0
-set iskeyword-=_
-autocmd BufWritePre * :%s/\s\+$//e "auto strip trailling whitespace
 set selection=inclusive
 :map <bs> bdw
 "set background=dark

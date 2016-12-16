@@ -1,0 +1,63 @@
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+on_cmd = ['NERDTree']
+hook_add = '''
+nnoremap <silent> <leader>d :<C-u>NERDTree<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") |q| endif
+'''
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+on_i = 1
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['python']
+hook_add = '''
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command ="<C-N>"
+'''
+
+[[plugins]]
+repo = 'LaTex-Box-Team/LaTex-Box'
+on_ft = ['tex']
+hook_add = '''
+map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline
+                \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
+                \ "%:p" <CR>
+'''
+
+[[plugins]]
+repo = 'ag.vim'
+on_cmd = ['Ag']
+hook_add = '''
+let g:ackprg='ag --nogroup --nocolor --column'
+'''
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+on_hook = '''
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_commond = 'goimports'
+'''
+
+[[plugins]]
+repo = 'Blackrush/vim-gocode'
+on_ft = ['go']
+
+[[plugins]]
+repo = 'dgryski/vim-godef'
+on_ft = ['go']
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+on_ft = ['cpp', 'c', 'java', 'py']
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+on_ft = ['cpp', 'c', 'java', 'py', 'tex']
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_ft = ['cpp', 'c', 'java', 'py', 'tex']
