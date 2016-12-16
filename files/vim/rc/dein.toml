@@ -7,11 +7,11 @@ repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'Shougo/neomru.vim'
-hook_source = 'source $HOME/.vim/rc/plugins/unite.rc.vim'
+hook_add = 'source $HOME/.vim/rc/plugins/unite.rc.vim'
 
 [[plugins]]
 repo = 'bling/vim-airline'
-hook_source = 'source $HOME/.vim/rc/plugins/vim-airline.rc.vim'
+hook_add = 'source $HOME/.vim/rc/plugins/vim-airline.rc.vim'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -33,7 +33,7 @@ repo = 'christoomey/vim-tmux-navigator'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
-hook_source = 'source ~/.vim/rc/plugins/tagbar.rc.vim'
+hook_add = 'source ~/.vim/rc/plugins/tagbar.rc.vim'
 
 [[plugins]]
 repo = 'kien/rainbow_parentheses.vim'
