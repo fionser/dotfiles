@@ -37,3 +37,14 @@ hook_add = 'source ~/.vim/rc/plugins/tagbar.rc.vim'
 
 [[plugins]]
 repo = 'kien/rainbow_parentheses.vim'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'rking/ag.vim'
+on_cmd = ['Ag']
+hook_add = '''
+let g:ackprg='ag --nogroup --nocolor --column'
+'''
