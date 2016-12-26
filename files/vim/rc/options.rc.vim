@@ -52,5 +52,5 @@ set iskeyword-=_
 autocmd BufWritePre * :%s/\s\+$//e "auto strip trailling whitespace
 set selection=inclusive
 :map <bs> bdw
-"set background=dark
+"  set background=light
 colorscheme solarized

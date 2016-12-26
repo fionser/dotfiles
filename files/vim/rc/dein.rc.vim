@@ -1,5 +1,5 @@
-let g:dein#install_progress_type = 'title'
-let g:dein#install_message_type = 'none'
+let g:dein#install_progress_type = 'echo'
+let g:dein#install_message_type = 'echo'
 let s:path = expand('$CACHE/dein')
 if !dein#load_state(s:path)
   finish

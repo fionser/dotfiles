@@ -5,6 +5,10 @@ repo = 'Shougo/dein.vim'
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
+repo = 'Shougo/neocomplete.vim'
+hook_add = 'source $HOME/.vim/rc/plugins/neocomplete.rc.vim'
+
+[[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'Shougo/neomru.vim'
 hook_add = 'source $HOME/.vim/rc/plugins/unite.rc.vim'
