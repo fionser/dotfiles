@@ -3,4 +3,5 @@ map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/d
                 \ "%:p" <CR>
 let g:LatexBox_personal_latexmkrc = 1
 let g:LatexBox_show_warnings = 0
+" autocmd BufNewFile,BufRead *.tex nnoremap <buffer> <LocalLeader>ll :update!<CR>:Latexmk!<CR>
 

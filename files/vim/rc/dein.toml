@@ -52,3 +52,15 @@ on_cmd = ['Ag']
 hook_add = '''
 let g:ackprg='ag --nogroup --nocolor --column'
 '''
+
+[[plugins]]
+repo = 'goerz/ipynb_notedown.vim'
+hook_add = '''
+let g:notedown_enable = 1
+'''
+# [[plugins]]
+# repo = 'vim-scripts/vim-auto-save'
+# hook_add = '''
+# let g:auto_save = 1
+# let g:auto_save_silent = 1
+# '''

@@ -25,7 +25,7 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 syntax on
-syntax sync minlines=80 maxlines=300
+syntax sync minlines=80 maxlines=80
 set synmaxcol=128
 set regexpengine=1
 set lazyredraw
@@ -47,10 +47,10 @@ set ts=4  ""tab width for 4
 set smarttab  ""can delete four space at once.
 set sm  ""parentless match
 set cindent ""C Indent
-set cino+=N-s,g0,:0,(0
-set iskeyword-=_
-autocmd BufWritePre * :%s/\s\+$//e "auto strip trailling whitespace
+set cino+=N-s,g0,:0,(0 "Cindent options
+" set iskeyword-=_
 set selection=inclusive
+set noeb vb t_vb= ""stop belling
 :map <bs> bdw
-"  set background=light
+"set background=light
 colorscheme solarized

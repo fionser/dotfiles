@@ -40,9 +40,15 @@ on_ft = ['go']
 repo = 'dgryski/vim-godef'
 on_ft = ['go']
 
+# [[plugins]]
+# repo = 'scrooloose/syntastic'
+# on_ft = ['cpp', 'c', 'java', 'py']
+# hook_add = 'source $HOME/.vim/rc/plugins/syntastic.rc.vim'
+
 [[plugins]]
-repo = 'scrooloose/syntastic'
+repo = 'neomake/neomake'
 on_ft = ['cpp', 'c', 'java', 'py']
+hook_add = 'source $HOME/.vim/rc/plugins/neomake.rc.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -52,3 +58,11 @@ hook_add = 'source $HOME/.vim/rc/plugins/neosnippet.rc.vim'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 on_ft = ['cpp', 'c', 'java', 'py', 'tex']
+
+[[plugins]]
+repo = 'ivanov/vim-ipython'
+on_ft = ['py']
+
+[[plugins]]
+repo = 'kiteco/vim-plugin'
+on_ft = ['py']
