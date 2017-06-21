@@ -1,0 +1,15 @@
+# Increase volume
+"pamixer -i 5"
+  XF86AudioRaiseVolume
+# Decrease volume 
+"pamixer -d 5"
+  XF86AudioLowerVolume
+# Mute 
+"amixer -D pulse sset Master toggle"
+   XF86AudioMute
+# Increase backlight
+"xbacklight -inc 5"
+  XF86MonBrightnessUp
+# Decrease backlight
+"xbacklight -dec 5"
+  XF86MonBrightnessDown

@@ -6,8 +6,9 @@ prompt pure
 # plugins 
 source $HOME/.zplug/init.zsh
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/brew", from:oh-my-zsh
+zplug "wting/autojump"
 zplug "zsh-users/zsh-syntax-highlighting", use:"zsh-syntax-highlighting.zsh"
+zplug "jimeh/zsh-peco-history"
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -16,35 +17,26 @@ if ! zplug check --verbose; then
 fi
 ## Then, source plugins and add commands to $PATH
 zplug load 
-### plugins settings
-# autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-# Make sure brew works
-export PATH="/usr/local/bin:$PATH"
+# autojuump
+[[ -s /home/riku/.autojump/etc/profile.d/autojump.sh ]] && source /home/riku/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
 
-# Python
-export PYENV_ROOT="/usr/local/var/pyenv"
+# python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# Clion
+export IDE_HOME="$HOME/Public/clion"
+
 # alias
-alias ls='ls -Gp'
-alias vim='mvim -v'
+alias ls='ls --color=auto'
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export JAVA_HOME="$(eval /usr/libexec/java_home -v 1.8)"
-export GOROOT="/usr/local/opt/go/libexec/"
-export GOPATH="$HOME/Documents/codes/go"
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 export EDITOR=vim
-export VIFM=$HOME/.vifm/
 
-unamestr=`uname`
-if [[ "$unamestr" == 'Darwin' ]]; then
-export PATH="$PATH:/usr/local/texlive/2016basic/bin/x86_64-darwin"
-export OPENSSL_ROOT_DIR="/usr/local/opt/openssl"
-export OPENSSL_INCLUDE_DIR="$OPENSSL_ROOT_DIR/include"
-fi
-
+SAVEHIST=100
+HISTFILE=$HOME/.zsh_history

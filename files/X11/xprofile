@@ -1,0 +1,23 @@
+#
+# ~/.xprofile
+#
+#
+
+# if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+#     eval "$(dbus-launch --sh-syntax --exit-with-session)"
+# fi
+
+# Environment variables
+#
+
+[[ -f ~/.extend.xprofile ]] && . ~/.extend.xprofile
+xset s 300 5 &
+xss-lock -- /usr/bin/xsecurelock &
+ibus-daemon -drx &
+slack &
+xbindkeys &
+dropbox &
+# thinkpad core keyboard device id is 5
+setxkbmap -device 5 -option "ctrl:swapcaps" -option "altwin:swap_lalt_lwin" &
+touchpad_toggle.sh
+
