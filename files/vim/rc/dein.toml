@@ -4,6 +4,10 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# hook_add = 'source $HOME/.vim/rc/plugins/deoplete.rc.vim'
+
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 hook_add = 'source $HOME/.vim/rc/plugins/neocomplete.rc.vim'
@@ -14,7 +18,11 @@ depends = 'Shougo/neomru.vim'
 hook_add = 'source $HOME/.vim/rc/plugins/unite.rc.vim'
 
 [[plugins]]
-repo = 'bling/vim-airline'
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+depends = 'vim-airline/vim-airline-themes'
 hook_add = 'source $HOME/.vim/rc/plugins/vim-airline.rc.vim'
 
 [[plugins]]
@@ -58,9 +66,22 @@ repo = 'goerz/ipynb_notedown.vim'
 hook_add = '''
 let g:notedown_enable = 1
 '''
-# [[plugins]]
-# repo = 'vim-scripts/vim-auto-save'
-# hook_add = '''
-# let g:auto_save = 1
-# let g:auto_save_silent = 1
-# '''
+
+[[plugins]]
+repo = 'petRUShka/vim-sage'
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+hook_add = '''
+colorscheme gruvbox
+let g:gruvbox_constrast='soft'
+set termguicolors
+'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = 'source ~/.vim/rc/plugins/ale.rc.vim'

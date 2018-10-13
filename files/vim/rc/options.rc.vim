@@ -17,13 +17,28 @@ set smartcase
 set matchtime=1 "100MS
 set showtabline=1
 set incsearch
-"nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap j gj
+nnoremap k gk
+nnoremap $ g$
+nnoremap 0 g0
+vnoremap j gj
+vnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
 syntax on
 syntax sync minlines=80 maxlines=80
 set synmaxcol=128
@@ -40,17 +55,17 @@ function! s:VSetSearch()
     let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
     let @s = temp
 endfunction
-
 set expandtab
-set sw=4  ""auto indent for 4
-set ts=4  ""tab width for 4
+set shiftwidth=2  ""auto indent for 4
+set tabstop=2  ""tab width for 4
 set smarttab  ""can delete four space at once.
 set sm  ""parentless match
+set autoindent
+set smartindent
 set cindent ""C Indent
 set cino+=N-s,g0,:0,(0 "Cindent options
-" set iskeyword-=_
 set selection=inclusive
 set noeb vb t_vb= ""stop belling
 :map <bs> bdw
-"set background=light
-colorscheme solarized
+set background=light
+set t_ut=
