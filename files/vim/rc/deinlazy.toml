@@ -6,39 +6,10 @@ nnoremap <silent> <leader>d :<C-u>NERDTree<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") |q| endif
 '''
 
-# [[plugins]]
-# repo = 'Rip-Rip/clang_complete'
-# on_ft = ['cpp', 'c']
-# hook_add = 'source $HOME/.vim/rc/plugins/clang_complete.rc.vim'
-
-# [[plugins]]
-# repo = 'davidhalter/jedi-vim'
-# on_ft = ['python']
-# hook_add = '''
-# let g:jedi#popup_on_dot = 0
-# let g:jedi#completions_command ="<C-N>"
-# '''
-
 [[plugins]]
 repo = 'LaTex-Box-Team/LaTex-Box'
 on_ft = ['tex']
 hook_add = 'source $HOME/.vim/rc/plugins/latex-box.rc.vim'
-
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
-on_hook = '''
-let g:go_fmt_fail_silently = 1
-let g:go_fmt_commond = 'goimports'
-'''
-
-[[plugins]]
-repo = 'Blackrush/vim-gocode'
-on_ft = ['go']
-
-[[plugins]]
-repo = 'dgryski/vim-godef'
-on_ft = ['go']
 
 [[plugins]]
 repo = 'scrooloose/syntastic'

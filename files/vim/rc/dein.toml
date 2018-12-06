@@ -4,10 +4,6 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# hook_add = 'source $HOME/.vim/rc/plugins/deoplete.rc.vim'
-
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 hook_add = 'source $HOME/.vim/rc/plugins/neocomplete.rc.vim'
@@ -62,12 +58,6 @@ let g:ackprg='ag --nogroup --nocolor --column'
 '''
 
 [[plugins]]
-repo = 'goerz/ipynb_notedown.vim'
-hook_add = '''
-let g:notedown_enable = 1
-'''
-
-[[plugins]]
 repo = 'petRUShka/vim-sage'
 
 [[plugins]]
@@ -79,9 +69,10 @@ set termguicolors
 '''
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
-[[plugins]]
 repo = 'w0rp/ale'
-hook_add = 'source ~/.vim/rc/plugins/ale.rc.vim'
+hook_add = '''
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\  'cpp': ['cppcheck'],
+\ }
+'''
