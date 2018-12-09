@@ -9,9 +9,8 @@ repo = 'Shougo/neocomplete.vim'
 hook_add = 'source $HOME/.vim/rc/plugins/neocomplete.rc.vim'
 
 [[plugins]]
-repo = 'Shougo/unite.vim'
-depends = 'Shougo/neomru.vim'
-hook_add = 'source $HOME/.vim/rc/plugins/unite.rc.vim'
+repo = 'Shougo/denite.nvim'
+hook_add = 'source $HOME/.vim/rc/plugins/denite.rc.vim'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
@@ -33,8 +32,8 @@ repo = 'vim-scripts/tComment'
 [[plugins]]
 repo = 'Raimondi/delimitMate'
 
-[[plugins]]
-repo = 'myusuf3/numbers.vim'
+# [[plugins]]
+# repo = 'myusuf3/numbers.vim'
 
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
