@@ -18,9 +18,9 @@ M.on_attach = function(client, bufnr)
   end
 end
 
-vim.diagnostic.config({
-	virtual_text = false,
-})
+vim.diagnostic.config {
+  virtual_text = false,
+}
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -65,7 +65,17 @@ require("lspconfig").lua_ls.setup {
   },
 }
 
-require("lspconfig").clangd.setup ({})
-require("lspconfig").rust_analyzer.setup ({})
+require("lspconfig").clangd.setup {}
+require("lspconfig").rust_analyzer.setup {
+  settings = {
+    ["rust-analyzer"] = {
+      inlayHints = {
+        enable = true,
+        showParameterNames = true,
+      },
+    },
+  },
+}
+require("lspconfig").java_language_server.setup {}
 
 return M
